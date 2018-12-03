@@ -284,8 +284,8 @@ printCT (CAT.Node x y left right) = putStrLn $ DTP.drawVerticalTree tree
 
 stringTree :: Show y => CT Int y -> DT.Tree String
 stringTree (CAT.NIL) = (DT.Node "NIL" [])
-stringTree (CAT.Node x y left NIL) = (DT.Node (show y) [(stringTree left)])
-stringTree (CAT.Node x y NIL right) = (DT.Node (show y) [(stringTree right)])
-stringTree (CAT.Node x y left right) = (DT.Node (show y) [(stringTree left),(stringTree right)])
+stringTree (CAT.Node x y left NIL) = (DT.Node (show y) [(stringTree left), (stringTree (CAT.NIL))])
+stringTree (CAT.Node x y NIL right) = (DT.Node (show y) [(stringTree (CAT.NIL)), (stringTree right)])
+stringTree (CAT.Node x y left right) = (DT.Node (show y) [(stringTree left), (stringTree right)])
   
   
